@@ -11,7 +11,6 @@ public class Client
         Scanner scn = new Scanner(System.in); 
           
         InetAddress ip = InetAddress.getByName("localhost"); 
-          
         Socket s = new Socket(ip, ServerPort); 
           
         DataInputStream dis = new DataInputStream(s.getInputStream()); 
@@ -21,6 +20,8 @@ public class Client
         System.out.println("Ingresa tu nombre");
         String mensaje = menss.nextLine();
         dos.writeUTF(mensaje);
+
+
         Thread sendMessage = new Thread(new Runnable()  
         { 
             @Override
@@ -40,7 +41,8 @@ public class Client
             } 
         }); 
           
-        // readMessage thread 
+
+
         Thread readMessage = new Thread(new Runnable()  
         { 
             @Override
